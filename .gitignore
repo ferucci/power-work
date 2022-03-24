@@ -1,9 +1,2 @@
-.DS_Store
-.idea/
-.idea*
-.vscode
-*.sublime*
-npm-debug.*
-
 .jshintrc
 style.css
