@@ -1,12 +1,21 @@
 // 'use strict';
 
-let title;
-let screens;
-let screenPrice;
-let rollback;
-let fullPrice;
-let adaptive;
+let title = 'Frenzied study JavaScript';
+let screens = "Смартфоны (320-480px),Планшеты(768px+),Нетбуки(1024px+),Мониторы OLED/AMOLED (1280px+)";
+let screenPrice = 101000101;
+let rollback = 55;
+let fullPrice = Number.MAX_VALUE;
+let adaptive = true;
 
-console.log('У меня атрибут "defer" не всегда срабатывает. Почему так?');
+console.log(typeof title);
+console.log(typeof fullPrice);
+console.log(typeof adaptive);
 
-alert('Я не понял, стоило присваивать переменным какие-нибудь значения или нет?) Если нет - нажмите ОК =)');
+console.log(screens.length);
+
+console.log('Стоимость верстки экранов', screenPrice + "", 'рублей');
+console.log('Стоимость верстки сайта', fullPrice + "", 'рублей');
+
+console.log(screens.toLowerCase().split(','));
+
+console.log(fullPrice * (rollback / 100));
