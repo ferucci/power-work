@@ -2,9 +2,9 @@
 
 let title = 'Frenzied study JavaScript';
 let screens = "Смартфоны (320-480px),Планшеты(768px+),Нетбуки(1024px+),Мониторы OLED/AMOLED (1280px+)";
-let screenPrice = 101000101;
+let screenPrice = 17;
 let rollback = 55;
-let fullPrice = Number.MAX_VALUE;
+let fullPrice = 42;
 let adaptive = true;
 
 console.log(typeof title);
