@@ -14,6 +14,14 @@ let fullPrice;
 let allServicePrices;
 let servicePercentPrice;
 
+function getFullPrice() {
+  return screenPrice + allServicePrices;
+}
+
+function getServicePercentPrices() {
+  return fullPrice - (fullPrice * (rollback / 100));
+}
+
 const showTypeOf = function (variable) {
   console.log(variable, typeof variable);
 };
@@ -33,26 +41,19 @@ const getRollbackMessage = function (price) {
 const getAllServicePrices = function () {
   return servicePrice1 + servicePrice2;
 };
-allServicePrices = getAllServicePrices();
 
-function getFullPrice() {
-  return screenPrice + allServicePrices;
-}
-fullPrice = getFullPrice();
-servicePercentPrice = fullPrice - ((fullPrice / 100) * rollback);
-
-const getTitle = function () {
-  if (title[0] !== ' ') {
-    return title.charAt(0).toUpperCase() + title.slice(1).toLowerCase();
+const getTitle = function (str) {
+  if (!str) {
+    return str;
   } else {
-    return title;
+    return (str[0].toUpperCase() + str.slice(1)).replace(/^ +| +$|( ) +/g, "$1");
   }
 };
 
-function getServicePercentPrices() {
-  return fullPrice - (fullPrice * (rollback / 100));
-}
+allServicePrices = getAllServicePrices();
+fullPrice = getFullPrice();
 servicePercentPrice = getServicePercentPrices();
+title = getTitle(title);
 
 showTypeOf(title);
 showTypeOf(fullPrice);
