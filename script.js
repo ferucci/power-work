@@ -6,6 +6,7 @@ let screenPrice;
 let adaptive;
 let service1;
 let service2;
+
 let rollback = 25;
 let fullPrice;
 let allServicePrices;
@@ -29,21 +30,23 @@ const asking = function () {
 
 const getAllServicePrices = function () {
   let sum = 0;
+  let number;
   for (let i = 0; i < 2; i++) {
-
     if (i === 0) {
       service1 = prompt('Какой дополнительный тип услуги нужен?');
     } else if (i === 1) {
       service2 = prompt('Какой дополнительный тип услуги нужен?');
     }
 
-    sum += parseInt(prompt('Сколько это будет стоить?').trim().split());
+    do {
+      number = prompt('Сколько это будет стоить?').split();
+    } while (!isNumber(number));
+    number++;
+    number--;
 
-    while (!isNumber(sum)) {
-      sum = prompt('Сколько это будет стоить?');
-    }
+    sum += number;
+
   }
-
   return Math.floor(sum);
 };
 
@@ -89,7 +92,7 @@ showTypeOf(title);
 showTypeOf(fullPrice);
 showTypeOf(adaptive);
 
-console.log("allServicePrices", allServicePrices);
+console.log("allServicePrices", allServicePrices, typeof allServicePrices);
 
 // console.log(typeof title);
 // console.log(typeof screenPrice);
