@@ -69,12 +69,11 @@ const appData = {
     }
   },
   logger: function () {
-    console.log(appData.fullPrice);
-    console.log(appData.servicePercentPrice);
 
     for (let key in appData) {
       console.log(key + '' + appData[key]);
     }
+
   },
   start: function () {
     appData.asking();
