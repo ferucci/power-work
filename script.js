@@ -24,7 +24,7 @@ const appData = {
 
   },
   isNumber: function (num) {
-    return !isNaN(parseFloat(num)) && isFinite(num);
+    return !isNaN(parseFloat(num)) && isFinite(num) && num !== 0;
   },
   getAllServicePrices: function () {
     let sum = 0;
