@@ -11,23 +11,38 @@ const appData = {
   allServicePrices: 0,
   servicePercentPrice: 0,
   asking: function () {
-    appData.title = prompt('Как называется ваш проект?', 'frenzied study JavaScript');
+    do {
+      appData.title = prompt('Как называется ваш проект?', 'frenzied study JavaScript');
+    } while (!appData.isStr(appData.title));
+
+    appData.adaptive = confirm('Нужен ли адаптив на сайте?');
 
     for (let i = 0; i < 2; i++) {
-      let name = prompt('Какие типы экранов нужно разработать?');
+      let name;
       let number = 0;
+
+      do {
+        name = prompt('Какие типы экранов нужно разработать?');
+      } while (!appData.isStr(name));
 
       do {
         number = +(prompt('Сколько будет стоить данная работа?'));
 
       } while (!appData.isNumber(number));
 
-      appData.screens.push({ id: 1, name: name, number: number });
+      appData.screens.push({ id: i, name: name, number: number });
+      if (appData.screens[name] === appData.screens[name]) {
+        appData.screens[i] + appData.screens[i];
+      }
     }
 
     for (let i = 0; i < 2; i++) {
-      let name = prompt('Какой дополнительный тип услуги нужен?');
+      let name;
       let number = 0;
+
+      do {
+        name = prompt('Какой дополнительный тип услуги нужен?');
+      } while (!appData.isStr(name));
 
       do {
         number = +prompt('Сколько это будет стоить?');
@@ -36,13 +51,13 @@ const appData = {
       appData.services[name] = number;
     }
 
-    appData.adaptive = confirm('Нужен ли адаптив на сайте?');
-
   },
   addPrices: function () {
-    for (let screen of appData.screens) {
-      appData.screenPrice += screen.number;
-    }
+
+    let initialValue = 0;
+    appData.screenPrice = appData.screens.reduce(function (value, item) {
+      return value + item.number;
+    }, initialValue);
 
     for (let key in appData.services) {
       appData.allServicePrices += appData.services[key];
@@ -50,6 +65,9 @@ const appData = {
   },
   isNumber: function (num) {
     return !isNaN(parseFloat(num)) && isFinite(num) && num !== 0 && num !== null;
+  },
+  isStr: function (str) {
+    return isNaN(parseFloat(str)) && str !== null && !isFinite(str);
   },
   getFullPrice: function () {
     appData.fullPrice = appData.screenPrice + appData.allServicePrices;
