@@ -2,25 +2,26 @@
 
 const getTitle = document.getElementsByTagName('h1');
 const title = getTitle[0];
-const buttons = document.getElementsByClassName('handler_btn');
-const button1 = buttons[0];
-const button2 = buttons[1];
+const totalButtons = document.getElementsByClassName('handler_btn');
+const buttonStart = totalButtons[0];
+const buttonReset = totalButtons[1];
 const buttonAdd = document.querySelector('.screen-btn');
 const otherItemsPercent = document.querySelectorAll('.other-items.percent');
 const otherItemsNumber = document.querySelectorAll('.other-items.number');
 const rollbackInputRange = document.querySelector('div.main-controls__range > input[type=range]');
 const rollbackRangeValue = document.querySelector('div.main-controls__range > span.range-value');
-const inputsAll = document.getElementsByClassName('total-input');
+const costCalcInputs = document.getElementsByClassName('total-input');
+const costLayout = costCalcInputs[0];
+const numberOfScreens = costCalcInputs[1];
+const costAddServices = costCalcInputs[2];
+const costTotal = costCalcInputs[3];
+const rollbackCostTotal = costCalcInputs[4];
+
 let screens = document.querySelectorAll('.screen');
 
-
-// Это значит, что я получил все инпуты с классом total-input ? 
-// Методом перебора получил, могу вывести по отдельности,  но не сохранил=)
-// Слишком мутарно получать каждый элемент в одтельную переменную. А как сохранить все значения в переменную не понимаю.
-for (let i = 0; i < inputsAll.length; i++) {
-  console.log(inputsAll[i]);
-}
-
+// for (let i = 0; i < costCalcInputs.length; i++) {
+//   console.log(costCalcInputs[i]);
+// }
 
 // const appData = {
 //   title: '',
