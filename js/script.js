@@ -15,11 +15,11 @@ const costAddServices = costCalcInputs[2];
 const costTotal = costCalcInputs[3];
 const rollbackCostTotal = costCalcInputs[4];
 
-const cmsOpen = document.querySelector('#cms-open');
-const cmsSelect = document.getElementById('cms-select');
+let cmsOpen = document.querySelector('#cms-open');
+let cmsSelect = document.getElementById('cms-select');
 const hiddenOptions = document.querySelector('.hidden-cms-variants');
 const otherOptionBlock = hiddenOptions.querySelector('.main-controls__input');
-const otherOption = otherOptionBlock.querySelector('input');
+let otherOption = otherOptionBlock.querySelector('input');
 
 let screens = document.querySelectorAll('.screen');
 let viewsSelect = document.querySelectorAll('.screen>.main-controls__select>select');
@@ -108,6 +108,9 @@ const appData = {
     const inputsAdditionally = document.querySelectorAll('.other-items');
     const finalResultInputs = document.querySelectorAll('.main-total__item>input');
 
+    cmsOpen = document.querySelector('#cms-open');
+    otherOption = otherOptionBlock.querySelector('input');
+
     screens = document.querySelectorAll('.screen');
     viewsSelect = document.querySelectorAll('.screen>.main-controls__select>select');
     viewsInput = document.querySelectorAll('.screen>.main-controls__input>input');
@@ -118,11 +121,19 @@ const appData = {
     appData.servicePricesNumber = 0;
     appData.servicePercentPrice = 0;
     appData.fullPrice = 0;
-    appData.servicesNumber = 0;
+    appData.servicesNumber = {};
     appData.rollback = 0;
-    appData.servicesPercent = 0;
+    appData.servicesPercent = {};
     appData.countNumber = 0;
     appData.count = [];
+    appData.cmsValueNum = 0;
+
+    cmsOpen.disabled = false;
+    cmsSelect.disabled = false;
+    otherOption.disabled = false;
+    buttonAdd.disabled = false;
+    cmsSelect.selectedIndex = 0;
+    otherOption.value = 0;
 
     screens.forEach((screen, id) => {
       if (id !== 0) {
@@ -147,8 +158,6 @@ const appData = {
       item.value = '';
     }
 
-    buttonAdd.disabled = false;
-
     inputsAdditionally.forEach((item) => {
       const check = item.querySelector('input[type="checkbox"]');
       if (check.checked) {
@@ -171,7 +180,7 @@ const appData = {
     if (cmsOpen.checked) {
       cmsOpen.checked = false;
     }
-
+    console.log(appData);
     appData.init();
   },
   openCMS: function () {
@@ -344,8 +353,10 @@ const appData = {
   //   }
   //   console.log(appData.screens);
   //   console.log(appData.cmsValue);
+  //   console.log(appData);
 
   // },
+
 };
 
 appData.init();
