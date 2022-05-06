@@ -19,10 +19,6 @@ const rollbackCostTotal = costCalcInputs[4];
 
 let screens = document.querySelectorAll('.screen');
 
-for (let i = 0; i < costCalcInputs.length; i++) {
-  console.log(costCalcInputs[i]);
-}
-
 const appData = {
   title: '',
   screens: [],
@@ -80,8 +76,6 @@ const appData = {
       }
 
     }
-
-
 
   },
   addPrices: function () {
