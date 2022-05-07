@@ -58,6 +58,7 @@ const appData = {
     for (let i = 0; i < 2; i++) {
       let name;
       let number = 0;
+      let id = i
 
       do {
         name = prompt('Какой дополнительный тип услуги нужен?');
@@ -69,8 +70,8 @@ const appData = {
 
 
       if (name === name) {
-        appData.services[`${name} = ${name + ' '}`] = number;
-        appData.services[`${name} = ${name + ''}`] = number;
+        appData.services[`${id} = ${name}`] = number;
+        appData.services[`${id} = ${name}`] = number;
       } else {
         appData.services[name] = number;
       }
