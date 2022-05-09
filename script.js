@@ -58,20 +58,21 @@ const appData = {
     for (let i = 0; i < 2; i++) {
       let name;
       let number = 0;
-      let id = i
+      let id;
 
       do {
         name = prompt('Какой дополнительный тип услуги нужен?');
+        id = i
       } while (!appData.isStr(name));
 
       do {
         number = +prompt('Сколько это будет стоить?');
+        id = i
       } while (!appData.isNumber(number));
 
 
       if (name === name) {
-        appData.services[`${id} = ${name}`] = number;
-        appData.services[`${id} = ${name}`] = number;
+        appData.services[`${id}: ${name}`] = number;
       } else {
         appData.services[name] = number;
       }
